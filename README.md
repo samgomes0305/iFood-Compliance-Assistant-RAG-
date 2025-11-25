@@ -82,8 +82,6 @@ Cenário: Dúvida sobre regras de inatividade (Baseado nos Termos de 2023/2025).
 - **👤 Pergunta:** "O que acontece se eu ficar 60 dias sem rodar?"
 - **🤖 Resposta do Agente:**
   > De acordo com os Termos Adicionais, a partir de 25 de setembro de 2023, o iFood iniciou um teste onde contas de entregadores que não realizarem entregas por um período igual ou superior a 60 dias poderão ser congeladas.
-  >
-  > Isso não é definitivo: você pode solicitar a reativação da conta diretamente pelo aplicativo.
 
 ---
 
