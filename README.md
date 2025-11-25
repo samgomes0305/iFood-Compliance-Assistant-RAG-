@@ -1,27 +1,36 @@
-🛡️ iFood Compliance Assistant (RAG)
+# 🛡️ iFood Compliance Assistant (RAG)
 
-Assistente Jurídico Inteligente para Entregadores, capaz de responder dúvidas sobre Termos de Uso e Políticas com base em documentos oficiais, utilizando Llama 3 e Busca Semântica.
+Assistente Jurídico Inteligente para Entregadores, capaz de responder dúvidas sobre Termos de Uso e Políticas com base em documentos oficiais, utilizando **Llama 3** e **Busca Semântica**.
 
-🧠 Sobre o Projeto
+---
 
-Este projeto é um sistema de RAG (Retrieval-Augmented Generation) desenvolvido para resolver o desafio de acesso à informação em documentos regulatórios extensos. Ele permite que entregadores tirem dúvidas complexas (ex: "O que acontece se eu ficar inativo?") e recebam respostas precisas e fundamentadas nas regras oficiais do iFood.
+## 🧠 Sobre o Projeto
 
-🚀 Stack Tecnológica
+Este projeto é um sistema de **RAG (Retrieval-Augmented Generation)** criado para resolver o desafio de acesso à informação em documentos extensos.
 
-Interface: Gradio (Chat Interface)
+Ele permite que entregadores façam perguntas complexas — como:
 
-LLM (Cérebro): Llama-3.1-8b (via Groq LPU - Inferência ultra-rápida)
+> "O que acontece se eu ficar inativo?"
 
-Embeddings (Memória): Google Gemini text-embedding-004 (Alta precisão semântica)
+E recebam respostas **precisas, contextualizadas e fundamentadas** nos documentos oficiais do iFood.
 
-Vector Store: ChromaDB (Banco de dados vetorial local)
+---
 
-Orquestração: LangChain
+## 🚀 Stack Tecnológica
 
-🏗️ Arquitetura da Solução
+- **Interface:** Gradio (Chat Interface)
+- **LLM:** Llama-3.1-8B via **Groq LPU**
+- **Embeddings:** Google Gemini **text-embedding-004**
+- **Vector Store:** ChromaDB (local)
+- **Orquestração:** LangChain
 
-O sistema utiliza uma arquitetura de RAG moderna, desacoplando a memória (Google) do raciocínio (Groq) para máxima eficiência e custo zero.
+---
 
+## 🏗️ Arquitetura da Solução
+
+O sistema utiliza uma arquitetura de RAG moderna, desacoplando **memória (Embeddings)** do **raciocínio (LLM)**.
+
+```mermaid
 graph TD
     A[PDF: Termos de Uso] -->|Splitter & Embeddings| B(Google Gemini API)
     B -->|Vetores| C{ChromaDB Local}
@@ -31,68 +40,70 @@ graph TD
     E -->|Contexto + Pergunta| F[LLM: Llama-3 (Groq)]
     F -->|Resposta| G[Interface Gradio]
 
-
 ⚡ Como Executar
-
-Pré-requisitos
+🔧 Pré-requisitos
 
 Python 3.9+
 
-Chaves de API (Gratuitas): Groq Cloud e Google AI Studio.
+Chaves de API:
 
-Passo a Passo
+GROQ_API_KEY
 
-Clone o repositório
+GOOGLE_API_KEY
 
-git clone [https://github.com/seu-usuario/ifood-compliance-rag.git](https://github.com/seu-usuario/ifood-compliance-rag.git)
+📌 Passo a Passo
+1️⃣ Clone o repositório
+git clone https://github.com/seu-usuario/ifood-compliance-rag.git
 cd ifood-compliance-rag
 
-
-Instale as dependências
-
+2️⃣ Instale as dependências
 pip install -r requirements.txt
 
+3️⃣ Configure o arquivo .env
 
-Configure as Chaves
-Crie um arquivo .env na raiz e adicione:
+Crie um arquivo .env contendo:
 
 GROQ_API_KEY=sua_chave_groq
 GOOGLE_API_KEY=sua_chave_google
 
-
-Crie o Banco de Dados
-
+4️⃣ Gere o banco vetorial
 python criar_db.py
 
-
-Inicie o App
-
+5️⃣ Inicie o aplicativo
 python app_gradio.py
 
+🧪 Exemplo de Uso
 
-O sistema abrirá no navegador automaticamente.
+Pergunta:
+"O que acontece se eu ficar 60 dias sem rodar?"
 
-🧪 Exemplo de Uso (Input -> Output)
+Resposta:
 
-Cenário: Dúvida sobre regras de inatividade (Baseado nos Termos de 2023/2025).
-
-👤 Pergunta: "O que acontece se eu ficar 60 dias sem rodar?"
-
-🤖 Resposta do Agente:
-"De acordo com os Termos Adicionais, a partir de 25 de setembro de 2023, o iFood iniciou um teste onde contas de entregadores que não realizarem entregas por um período igual ou superior a 60 dias poderão ser congeladas.
-
-Isso não é definitivo: você pode solicitar a reativação da conta diretamente pelo aplicativo."
+“De acordo com os Termos Adicionais, contas que não realizarem entregas por 60 dias podem ser congeladas.
+A reativação pode ser solicitada pelo aplicativo.”
 
 🛠️ Decisões Técnicas
+✔️ Por que Gradio?
 
-Por que Gradio?
-Optei pelo Gradio pela robustez em conexões locais e facilidade de criar interfaces de chat focadas em IA, evitando problemas de WebSocket comuns em outras bibliotecas.
+Simples
 
-Por que Google Embeddings?
-O modelo text-embedding-004 oferece excelente performance para Português (PT-BR) e possui uma janela de contexto generosa, ideal para documentos jurídicos.
+Estável
 
-Groq LPU:
-A utilização da Groq permite inferência em velocidade de tempo real, essencial para a experiência do usuário em suporte.
+Ótimo para interfaces de chat IA
+
+✔️ Por que Google Embeddings?
+
+Alto desempenho em PT-BR
+
+0 custo na camada gratuita
+
+Excelente para textos jurídicos
+
+✔️ Por que Groq?
+
+Inferência em tempo real
+
+Experiência de suporte fluída
 
 📝 Autor
 
