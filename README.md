@@ -41,8 +41,8 @@ O sistema utiliza uma arquitetura de RAG moderna, desacoplando a memória (Googl
 1. **Clone o repositório**
 
     ```
-    git clone https://github.com/seu-usuario/ifood-compliance-rag.git
-    cd ifood-compliance-rag
+    git clone https://github.com/samgomes0305/ifood-compliance-Assistant-RAG.git
+    cd ifood-compliance-Assistant-RAG
     ```
 
 2. **Instale as dependências**
